@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://crrm51q7ugnbh"]
+
+[ext_resource type="Texture2D" uid="uid://cpri0sqax8jgi" path="res://icon.svg" id="1_h100l"]
+[ext_resource type="Script" uid="uid://bvcdy4m3uewmh" path="res://scenes/alien.gd" id="1_u8rjw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8rjw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h100l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h100l"]
+size = Vector2(18, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8rjw"]
+size = Vector2(16, 3)
+
+[node name="Alien" type="CharacterBody2D"]
+script = ExtResource("1_u8rjw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.14, 0.14)
+sprite_frames = SubResource("SpriteFrames_u8rjw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_h100l")
+
+[node name="VitalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VitalArea"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_u8rjw")
+debug_color = Color(0.7194856, 0.48062462, 0, 0.41960785)
+
+[connection signal="body_entered" from="VitalArea" to="." method="_on_vital_area_body_entered"]
