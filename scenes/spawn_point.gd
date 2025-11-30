@@ -1,6 +1,7 @@
 extends Node2D
 @onready var marker_2d = $Marker2D
 @onready var timer = $Timer
+var game_over := false
 
 const ALIEN = preload("uid://crrm51q7ugnbh")
 
@@ -13,6 +14,9 @@ func spawn_alien():
 
 
 func _on_timer_timeout():
-	spawn_alien()
-	timer.wait_time = randi_range(1,4)
-	timer.start()
+	if !game_over:
+		spawn_alien()
+		timer.wait_time = randi_range(1,4)
+		timer.start()
+	else:
+		pass

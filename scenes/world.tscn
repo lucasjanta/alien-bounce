@@ -1,11 +1,16 @@
-[gd_scene load_steps=10 format=4 uid="uid://bj7tr0bf3ff7"]
+[gd_scene load_steps=20 format=4 uid="uid://bj7tr0bf3ff7"]
 
+[ext_resource type="Script" uid="uid://bclstjl5o7oh8" path="res://scenes/world.gd" id="1_i7141"]
 [ext_resource type="PackedScene" uid="uid://twcdflltyiis" path="res://scenes/player.tscn" id="1_k0juu"]
+[ext_resource type="Texture2D" uid="uid://bbcyci7b0mdhp" path="res://assets/bgs/scifi wallpaper.png" id="2_4mrxx"]
 [ext_resource type="Texture2D" uid="uid://bl42q2b4c7u0o" path="res://assets/tilesets/tiles.png" id="3_k0juu"]
 [ext_resource type="Texture2D" uid="uid://lcvn0ip0xvq2" path="res://assets/tilesets/alienscape_tileset_transparent.png" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://crrm51q7ugnbh" path="res://scenes/alien.tscn" id="5_71j4m"]
 [ext_resource type="PackedScene" uid="uid://6p02wsmxibkk" path="res://scenes/spawn_point.tscn" id="5_qfnet"]
 [ext_resource type="PackedScene" uid="uid://dlxqwuoeqg12e" path="res://scenes/ui.tscn" id="6_qfnet"]
+[ext_resource type="Script" uid="uid://bp7w2k1uo0207" path="res://scenes/game_over_container.gd" id="9_e3hyu"]
+[ext_resource type="FontFile" uid="uid://bc66623lppcov" path="res://assets/fonts/Exton Free Trial.otf" id="9_w7kh3"]
+[ext_resource type="FontFile" uid="uid://c8tlmsavwfw2o" path="res://assets/fonts/The Bomb Sound.otf" id="10_w7kh3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qfnet"]
 texture = ExtResource("3_k0juu")
@@ -233,17 +238,82 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qfnet")
 sources/1 = SubResource("TileSetAtlasSource_i7141")
 
-[node name="World" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3hyu"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.6862745)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
-[node name="Player" parent="." instance=ExtResource("1_k0juu")]
-position = Vector2(33, 101)
-speed = null
-jump_force = null
-gravity = null
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5onr"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.35052088, 0.15190828, 0.28456864, 0.61960787)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 5
+
+[sub_resource type="Animation" id="Animation_e3hyu"]
+resource_name = "show_score"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CanvasLayer/GameOverContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, -150), Vector2(60, 31.37)]
+}
+
+[sub_resource type="Animation" id="Animation_q5onr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/CanvasLayer/GameOverContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(60, -150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhx03"]
+_data = {
+&"RESET": SubResource("Animation_q5onr"),
+&"show_score": SubResource("Animation_e3hyu")
+}
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_i7141")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(161.00002, 80.50001)
+scale = Vector2(0.17604169, 0.17604166)
+texture = ExtResource("2_4mrxx")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAkAAQABAAEAAAABAAkAAQABAAEAAAACAAkAAQABAAEAAAADAAkAAQABAAEAAAAEAAkAAQABAAEAAAAFAAkAAQABAAEAAAAGAAkAAQABAAEAAAAHAAkAAQABAAEAAAAIAAkAAQABAAEAAAAJAAkAAQABAAEAAAAKAAkAAQABAAEAAAALAAkAAQABAAEAAAAMAAkAAQABAAEAAAANAAkAAQABAAEAAAAOAAkAAQABAAEAAAAPAAkAAQABAAEAAAAQAAkAAQABAAEAAAARAAkAAQABAAEAAAASAAkAAQABAAEAAAATAAkAAQABAAEAAAAAAAoAAQAAAAAAAAABAAoAAQAAAAAAAAACAAoAAQAAAAAAAAADAAoAAQAAAAAAAAAEAAoAAQAAAAAAAAAFAAoAAQAAAAAAAAAGAAoAAQAAAAAAAAAHAAoAAQAAAAAAAAAIAAoAAQAAAAAAAAAJAAoAAQAAAAAAAAAKAAoAAQAAAAAAAAALAAoAAQAAAAAAAAAMAAoAAQAAAAAAAAANAAoAAQAAAAAAAAAOAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAARAAoAAQAAAAAAAAASAAoAAQAAAAAAAAATAAoAAQAAAAAAAAAAAAsAAQAAAAAAAAABAAsAAQAAAAAAAAACAAsAAQAAAAAAAAADAAsAAQAAAAAAAAAEAAsAAQAAAAAAAAAFAAsAAQAAAAAAAAAGAAsAAQAAAAAAAAAHAAsAAQAAAAAAAAAIAAsAAQAAAAAAAAAJAAsAAQAAAAAAAAAKAAsAAQAAAAAAAAALAAsAAQAAAAAAAAAMAAsAAQAAAAAAAAANAAsAAQAAAAAAAAAOAAsAAQAAAAAAAAAPAAsAAQAAAAAAAAAQAAsAAQAAAAAAAAARAAsAAQAAAAAAAAASAAsAAQAAAAAAAAATAAsAAQAAAAAAAAD//wAAAQABAAEAAAD//wEAAQABAAEAAAD//wIAAQABAAEAAAD//wMAAQABAAEAAAD//wQAAQABAAEAAAD//wUAAQABAAEAAAD//wYAAQABAAEAAAD//wcAAQABAAEAAAD//wgAAQABAAEAAAD//wkAAQABAAEAAAAUAAAAAQABAAEAAAAUAAEAAQABAAEAAAAUAAIAAQABAAEAAAAUAAMAAQABAAEAAAAUAAQAAQABAAEAAAAUAAUAAQABAAEAAAAUAAYAAQABAAEAAAAUAAcAAQABAAEAAAAUAAgAAQABAAEAAAAUAAkAAQABAAEAAAACAAEAAQABAAEAAAADAAEAAQABAAEAAAAEAAEAAQABAAEAAAAFAAEAAQABAAEAAAAOAAEAAQABAAEAAAAPAAEAAQABAAEAAAAQAAEAAQABAAEAAAARAAEAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_4mrxx")
+
+[node name="Player" parent="." instance=ExtResource("1_k0juu")]
+position = Vector2(50, 109)
 
 [node name="Alien" parent="." instance=ExtResource("5_71j4m")]
 position = Vector2(140, 113)
@@ -255,3 +325,135 @@ position = Vector2(63, -23)
 position = Vector2(256, -23)
 
 [node name="UI" parent="." instance=ExtResource("6_qfnet")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="GameOverContainer" type="PanelContainer" parent="Control/CanvasLayer"]
+process_mode = 3
+custom_minimum_size = Vector2(200, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -240.0
+offset_right = 100.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e3hyu")
+script = ExtResource("9_e3hyu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CanvasLayer/GameOverContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_w7kh3")
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_q5onr")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 14
+text = "Alien Count:"
+
+[node name="AlienLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 14
+text = "20"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 14
+text = "Score:"
+
+[node name="ScoreLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 14
+text = "12600"
+
+[node name="HighScoreLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 8
+text = "New Highscore!!!"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_w7kh3")
+text = "Retry"
+
+[node name="MainMenuButton" type="Button" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_w7kh3")
+text = "Main Menu"
+
+[node name="ScoreAnimation" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_jhx03")
+}
+
+[connection signal="pressed" from="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

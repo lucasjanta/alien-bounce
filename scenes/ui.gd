@@ -1,7 +1,8 @@
 extends Control
 
+@onready var hearts = $CanvasLayer/hearts
+
+
 func _ready():
 	Global.ui_label = $CanvasLayer/ScoreContainer/MarginContainer/HBoxContainer/ScoreLabel
-
-func update_ui():
-	Global.ui_label.text = str(Global.score)
+	Global.hearts_animation = $CanvasLayer/hearts

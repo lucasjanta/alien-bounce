@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://btt305vsrmnja"
+path="res://.godot/imported/Palace Attack Theme.wav-276aaee0ebe1de6de4fd1e684aac0609.sample"
+
+[deps]
+
+source_file="res://assets/sfx/music/Palace Attack Theme.wav"
+dest_files=["res://.godot/imported/Palace Attack Theme.wav-276aaee0ebe1de6de4fd1e684aac0609.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

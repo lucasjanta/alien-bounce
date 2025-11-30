@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ggab5527d1a2"
+path="res://.godot/imported/Title Theme.mp3-794189074f802b91bf1a8caf208d9a4b.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/music/Title Theme.mp3"
+dest_files=["res://.godot/imported/Title Theme.mp3-794189074f802b91bf1a8caf208d9a4b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

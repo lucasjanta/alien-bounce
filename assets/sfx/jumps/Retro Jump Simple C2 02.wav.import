@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccx7xr6m8genc"
+path="res://.godot/imported/Retro Jump Simple C2 02.wav-5df1076527635a6605c79e3833251d5b.sample"
+
+[deps]
+
+source_file="res://assets/sfx/jumps/Retro Jump Simple C2 02.wav"
+dest_files=["res://.godot/imported/Retro Jump Simple C2 02.wav-5df1076527635a6605c79e3833251d5b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
