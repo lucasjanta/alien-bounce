@@ -22,7 +22,7 @@ func _physics_process(delta):
 
 	_check_collision_and_flip()
 
-func _process_state(delta):
+func _process_state(_delta):
 	match state:
 		State.WALK_RIGHT:
 			velocity.x = speed

@@ -1,8 +1,11 @@
 extends Control
 @onready var alien = $alien
 @onready var bounce = $bounce
+@onready var highscore_label = $HighscoreLabel
 
-
+func _ready():
+	highscore_label.text = "Highscore: " + str(Global.load_highscore())
+	
 
 func _on_start_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/world.tscn")

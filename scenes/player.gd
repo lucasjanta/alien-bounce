@@ -32,7 +32,7 @@ func _apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		velocity.y = 0 if state != State.JUMP else velocity.y
+		velocity.y = 0.0 if state != State.JUMP else velocity.y
 
 func _handle_input():
 	var horizontal := Input.get_axis("left", "right")
@@ -60,7 +60,7 @@ func _handle_input():
 			hurt_collision.disabled = true
 			animated_sprite_2d.play("flip")
 
-func _process_state(delta):
+func _process_state(_delta):
 	match state:
 
 		State.IDLE:
@@ -164,6 +164,7 @@ func final_score():
 
 func _on_hurt_collision_area_entered(area):
 	if area.name == "HitCollision":
-		animation_player.play("invincibility")
+		animation_player.call_deferred("play", "invincibility")
+		
 		
 		
