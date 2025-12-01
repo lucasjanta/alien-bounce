@@ -14,6 +14,13 @@ var gravity := 900.0
 
 func _ready():
 	animated_sprite_2d.play("walk")
+	match randi_range(1,2):
+		1:
+			state = State.WALK_LEFT
+			animated_sprite_2d.flip_h = true
+		2:
+			state = State.WALK_RIGHT
+			animated_sprite_2d.flip_h = false
 
 func _physics_process(delta):
 	velocity.y += gravity * delta

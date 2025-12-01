@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://bj7tr0bf3ff7"]
+[gd_scene load_steps=29 format=4 uid="uid://bj7tr0bf3ff7"]
 
 [ext_resource type="Script" uid="uid://bclstjl5o7oh8" path="res://scenes/world.gd" id="1_i7141"]
 [ext_resource type="PackedScene" uid="uid://twcdflltyiis" path="res://scenes/player.tscn" id="1_k0juu"]
@@ -566,12 +566,56 @@ content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
 content_margin_bottom = 0.0
-bg_color = Color(0.35052088, 0.15190828, 0.28456864, 0.61960787)
+bg_color = Color(0.19013906, 0.41136807, 0.15491521, 0.61960787)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhx03"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8fc1"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xo05s"]
+bg_color = Color(0, 0.69803923, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5onr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dss4m"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t5mc"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lakw3"]
+bg_color = Color(0, 0.69803923, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="Animation" id="Animation_e3hyu"]
 resource_name = "show_score"
@@ -587,7 +631,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(60, -150), Vector2(60, 31.37)]
+"values": [Vector2(85, -150), Vector2(85, 25)]
 }
 
 [sub_resource type="Animation" id="Animation_q5onr"]
@@ -649,18 +693,17 @@ grow_vertical = 2
 
 [node name="GameOverContainer" type="PanelContainer" parent="Control/CanvasLayer"]
 process_mode = 3
-custom_minimum_size = Vector2(200, 120)
-anchors_preset = 8
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -240.0
-offset_right = 100.0
-offset_bottom = -109.0
+offset_top = -150.0
+offset_right = 64.0
+offset_bottom = -17.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_e3hyu")
 script = ExtResource("9_e3hyu")
 
@@ -691,7 +734,7 @@ layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -705,12 +748,14 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("10_w7kh3")
 theme_override_font_sizes/font_size = 14
 text = "Alien Count:"
 
 [node name="AlienLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("10_w7kh3")
 theme_override_font_sizes/font_size = 14
 text = "20"
@@ -721,43 +766,186 @@ alignment = 1
 
 [node name="Label" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("10_w7kh3")
 theme_override_font_sizes/font_size = 14
 text = "Score:"
 
 [node name="ScoreLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("10_w7kh3")
 theme_override_font_sizes/font_size = 14
 text = "12600"
 
-[node name="HighScoreLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer"]
-visible = false
+[node name="HighScoreLabel" type="Label" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("10_w7kh3")
 theme_override_font_sizes/font_size = 8
 text = "New Highscore!!!"
 horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
 [node name="RetryButton" type="Button" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jhx03")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o8fc1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xo05s")
 text = "Retry"
 
 [node name="MainMenuButton" type="Button" parent="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jhx03")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o8fc1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xo05s")
+text = "Main Menu"
+
+[node name="PauseMenu" type="PanelContainer" parent="Control/CanvasLayer"]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(160, 140)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CanvasLayer/PauseMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_w7kh3")
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="MuteContainer" type="HBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MuteContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_font_sizes/font_size = 12
+text = "Mute"
+
+[node name="Control2" type="Control" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MuteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MuteButton" type="CheckButton" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MuteContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q5onr")
+
+[node name="MusicContainer" type="HBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MusicContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_font_sizes/font_size = 12
+text = "Music"
+
+[node name="Control" type="Control" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MusicContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicHSlider" type="HSlider" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MusicContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SFXContainer" type="HBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/SFXContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_font_sizes/font_size = 12
+text = "SFX"
+
+[node name="Control2" type="Control" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/SFXContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXHSlider" type="HSlider" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/SFXContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PauseResumeButton" type="Button" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 25)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dss4m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7t5mc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lakw3")
+text = "Resume"
+
+[node name="PauseRetryButton" type="Button" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 25)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dss4m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7t5mc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lakw3")
+text = "Retry"
+
+[node name="PauseMainMenuButton" type="Button" parent="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(124, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_w7kh3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dss4m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7t5mc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lakw3")
 text = "Main Menu"
 
 [node name="ScoreAnimation" type="AnimationPlayer" parent="."]
@@ -768,3 +956,9 @@ libraries = {
 
 [connection signal="pressed" from="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Control/CanvasLayer/GameOverContainer/MarginContainer/VBoxContainer/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="toggled" from="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MuteContainer/MuteButton" to="." method="_on_mute_button_toggled"]
+[connection signal="value_changed" from="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/MusicContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer2/SFXContainer/SFXHSlider" to="." method="_on_sfxh_slider_value_changed"]
+[connection signal="pressed" from="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PauseResumeButton" to="." method="_on_pause_resume_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PauseRetryButton" to="." method="_on_pause_retry_button_pressed"]
+[connection signal="pressed" from="Control/CanvasLayer/PauseMenu/MarginContainer/VBoxContainer/VBoxContainer/PauseMainMenuButton" to="." method="_on_pause_main_menu_button_pressed"]

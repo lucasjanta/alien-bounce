@@ -2,7 +2,7 @@ extends PanelContainer
 
 @onready var alien_label = $MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/AlienLabel
 @onready var score_label = $MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/ScoreLabel
-@onready var high_score_label = $MarginContainer/VBoxContainer/PanelContainer/HighScoreLabel
+@onready var high_score_label = $MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HighScoreLabel
 
 
 func _ready():
@@ -13,4 +13,5 @@ func show_score():
 	score_label.text = str(Global.score)
 	if Global.check_highscore():
 		high_score_label.visible = true
+		AudioController.play_game_over()
 	

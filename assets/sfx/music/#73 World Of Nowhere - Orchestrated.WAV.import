@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bwnrxx7r3efub"
+path="res://.godot/imported/#73 World Of Nowhere - Orchestrated.WAV-fb043c9404ed9885c33ce3ecb5b544ff.sample"
+
+[deps]
+
+source_file="res://assets/sfx/music/#73 World Of Nowhere - Orchestrated.WAV"
+dest_files=["res://.godot/imported/#73 World Of Nowhere - Orchestrated.WAV-fb043c9404ed9885c33ce3ecb5b544ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -16,7 +16,7 @@ func spawn_alien():
 func _on_timer_timeout():
 	if !game_over:
 		spawn_alien()
-		timer.wait_time = randi_range(1,4)
+		timer.wait_time = randf_range(1,4)
 		timer.start()
 	else:
 		pass

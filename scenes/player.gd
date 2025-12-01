@@ -59,6 +59,9 @@ func _handle_input():
 			flip_collision.disabled = false
 			hurt_collision.disabled = true
 			animated_sprite_2d.play("flip")
+			
+		if Input.is_action_just_pressed("pause"):
+			get_parent().pause_game()
 
 func _process_state(_delta):
 	match state:
@@ -77,7 +80,7 @@ func _process_state(_delta):
 				animated_sprite_2d.flip_h = true
 
 		State.JUMP:
-			state_label.text = "State: jump"
+			animated_sprite_2d.self_modulate = Color(1, 1, 1, 1.0)
 			if is_on_floor():
 				velocity.y = jump_force
 				Global.on_floor = false
@@ -97,7 +100,7 @@ func _process_state(_delta):
 				velocity.x = dir * speed
 
 		State.FLIP:
-			state_label.text = "State: flip"
+			animated_sprite_2d.self_modulate = Color(1, 1, 1, 1.0)
 			#animated_sprite_2d.flip_v = upside_down
 			if is_on_floor():
 				if !upside_down:
@@ -155,7 +158,7 @@ func take_damage():
 		Global.lifes = lifes
 		AudioController.play_death()
 		animation_player.play("death")
-		#get_parent().final_score()
+		final_score()
 	Global.update_ui()
 
 func final_score():
