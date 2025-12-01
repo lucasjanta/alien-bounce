@@ -32,3 +32,8 @@ func play_get_points():
 func play_death():
 	if not mute:
 		$Death.play()
+
+func play_button_hover():
+	if not mute:
+		$ButtonHover.pitch_scale = randf_range(0.8, 1.4)
+		$ButtonHover.play()

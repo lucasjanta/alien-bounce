@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca4q8mugefc4y"]
+[gd_scene load_steps=10 format=3 uid="uid://ca4q8mugefc4y"]
 
 [ext_resource type="AudioStream" uid="uid://d1drldh0dy2a8" path="res://assets/sfx/music/Boiler.ogg" id="1_6fhfa"]
 [ext_resource type="Script" uid="uid://cln5j4v1ur3u7" path="res://scenes/audio_controller.gd" id="1_vj1x0"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cyi86e4a5mv53" path="res://assets/sfx/hit/Retro Impact Punch 07.wav" id="5_my8s2"]
 [ext_resource type="AudioStream" uid="uid://ccx7xr6m8genc" path="res://assets/sfx/jumps/Retro Jump Simple C2 02.wav" id="6_nf7h6"]
 [ext_resource type="AudioStream" uid="uid://d3oi73te6hheu" path="res://assets/sfx/points/Coin.wav" id="7_nf7h6"]
+[ext_resource type="AudioStream" uid="uid://jup84xujqsgk" path="res://assets/sfx/menu/menu_6.ogg" id="9_2e0id"]
 
 [node name="AudioController" type="Node2D"]
 script = ExtResource("1_vj1x0")
@@ -35,3 +36,6 @@ pitch_scale = 0.9
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_12scf")
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_2e0id")
