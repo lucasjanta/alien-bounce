@@ -1,3 +1,5 @@
+<img width="1015" height="361" alt="banner" src="https://github.com/user-attachments/assets/98ef9f44-6b49-432c-a71e-8980434485c9" />
+
 # Alien Bounce
 
 **A fast-paced arcade platformer built in a single weekend for a micro game jam.**  
