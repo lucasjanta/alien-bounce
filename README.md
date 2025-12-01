@@ -38,9 +38,21 @@ Simple to learn, hard to master, perfect for quick, intense runs.
 
 ---
 
+## ▶️ How to Play (Itch.io)
+
+You can play the game directly in your browser:
+
+👉 **[Play Alien Bounce on itch.io](https://pancadev.itch.io/alien-bounce)**
+
+No installation required — just click the link and press **Run Game**!
+
+Alternativelly, you can download the .exe file in releases or through itch.io page.
+
+---
+
 ## 🛠️ Technologies Used
 
-- **Godot 4.4**  
+- **Godot 4.5**  
 - GDScript  
 - Free Pixel-art assets from itch.io
 
@@ -53,6 +65,6 @@ Feel free to open issues or fork the project.
 
 ## 🏆 Credits
 
-Made by **Lucas Ferreira** for the Micro jam 050 in a weekend.
+Made by **Lucas Ferreira** for Micro jam 050.
 
-Adding all the credits for the assets...
+Still Adding all the credits for the assets...
