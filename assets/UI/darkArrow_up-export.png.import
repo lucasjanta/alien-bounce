@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iohgeujeplej"
-path="res://.godot/imported/Alien Bounce.apple-touch-icon.png-040041a255f5c4385a1107eba90c051e.ctex"
+uid="uid://k3enbj74tu82"
+path="res://.godot/imported/darkArrow_up-export.png-d9e383dc9cb71279bbd08ef5e121717f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/Alien Bounce.apple-touch-icon.png"
-dest_files=["res://.godot/imported/Alien Bounce.apple-touch-icon.png-040041a255f5c4385a1107eba90c051e.ctex"]
+source_file="res://assets/UI/darkArrow_up-export.png"
+dest_files=["res://.godot/imported/darkArrow_up-export.png-d9e383dc9cb71279bbd08ef5e121717f.ctex"]
 
 [params]
 

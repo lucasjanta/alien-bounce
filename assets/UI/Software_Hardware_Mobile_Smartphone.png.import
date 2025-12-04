@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iohgeujeplej"
-path="res://.godot/imported/Alien Bounce.apple-touch-icon.png-040041a255f5c4385a1107eba90c051e.ctex"
+uid="uid://b38cqt74totq3"
+path="res://.godot/imported/Software_Hardware_Mobile_Smartphone.png-e515fe7f78771eda908c7986aba17a96.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/Alien Bounce.apple-touch-icon.png"
-dest_files=["res://.godot/imported/Alien Bounce.apple-touch-icon.png-040041a255f5c4385a1107eba90c051e.ctex"]
+source_file="res://assets/UI/Software_Hardware_Mobile_Smartphone.png"
+dest_files=["res://.godot/imported/Software_Hardware_Mobile_Smartphone.png-e515fe7f78771eda908c7986aba17a96.ctex"]
 
 [params]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwlclhmccg6bc"]
+[gd_scene load_steps=12 format=3 uid="uid://bwlclhmccg6bc"]
 
 [ext_resource type="Script" uid="uid://elt5qe8ypdx" path="res://scenes/main_menu.gd" id="1_8ln24"]
 [ext_resource type="FontFile" uid="uid://c8tlmsavwfw2o" path="res://assets/fonts/The Bomb Sound.otf" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bbcyci7b0mdhp" path="res://assets/bgs/scifi wallpaper.png" id="1_wu84c"]
 [ext_resource type="FontFile" uid="uid://sfn7hpfvaq0x" path="res://assets/fonts/Baby Gemoy.ttf" id="2_bqqt6"]
 [ext_resource type="FontFile" uid="uid://bc66623lppcov" path="res://assets/fonts/Exton Free Trial.otf" id="4_8ln24"]
+[ext_resource type="Texture2D" uid="uid://b38cqt74totq3" path="res://assets/UI/Software_Hardware_Mobile_Smartphone.png" id="6_rtw2f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
 bg_color = Color(0, 0, 0, 1)
@@ -28,6 +29,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -224,6 +227,26 @@ layout_mode = 2
 max_value = 1.0
 step = 0.01
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 108.0
+offset_right = 67.0
+offset_bottom = 166.0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer3"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_rtw2f")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer3"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rtw2f")
+
 [connection signal="mouse_entered" from="VBoxContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_mouse_entered"]
@@ -233,3 +256,4 @@ step = 0.01
 [connection signal="toggled" from="VBoxContainer2/MuteContainer/MuteButton" to="." method="_on_mute_button_toggled"]
 [connection signal="value_changed" from="VBoxContainer2/MusicContainer/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer2/SFXContainer/SFXHSlider" to="." method="_on_sfxh_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer3/CheckButton" to="." method="_on_check_button_toggled"]

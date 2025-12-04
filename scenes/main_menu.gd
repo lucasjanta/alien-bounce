@@ -53,3 +53,10 @@ func _on_sfxh_slider_value_changed(value):
 func _on_mute_button_toggled(toggled_on):
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), toggled_on)
 	AudioController.mute = toggled_on
+
+
+func _on_check_button_toggled(toggled_on):
+	if toggled_on:
+		Global.mobile_controls = true
+	else:
+		Global.mobile_controls = false

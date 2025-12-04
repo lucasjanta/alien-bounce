@@ -1,8 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlxqwuoeqg12e"]
+[gd_scene load_steps=17 format=3 uid="uid://dlxqwuoeqg12e"]
 
 [ext_resource type="Script" uid="uid://dvvqj88kudb8c" path="res://scenes/ui.gd" id="1_nt7q6"]
 [ext_resource type="Texture2D" uid="uid://ylqehiuimrmq" path="res://assets/life.png" id="2_x4jx1"]
 [ext_resource type="FontFile" uid="uid://c8tlmsavwfw2o" path="res://assets/fonts/The Bomb Sound.otf" id="2_yev5y"]
+[ext_resource type="Texture2D" uid="uid://dpb3q35hl3sl7" path="res://assets/UI/darkArrow_left2-export.png" id="4_cgfq5"]
+[ext_resource type="Texture2D" uid="uid://cd3mo368k6uq4" path="res://assets/UI/darkArrow_left2-export-pressed.png" id="5_7dvkv"]
+[ext_resource type="Texture2D" uid="uid://rejxb0gyk0ix" path="res://assets/UI/darkArrow_right2-export.png" id="6_vdcm2"]
+[ext_resource type="Texture2D" uid="uid://cv7sjysrfr0sf" path="res://assets/UI/darkArrow_right2-export-pressed.png" id="7_6rmj2"]
+[ext_resource type="Texture2D" uid="uid://k3enbj74tu82" path="res://assets/UI/darkArrow_up-export.png" id="8_vsj0x"]
+[ext_resource type="Texture2D" uid="uid://d0egkp8smdka5" path="res://assets/UI/darkArrow_up-export-pressed.png" id="9_qsv74"]
+[ext_resource type="Texture2D" uid="uid://diqy1ivlepw7o" path="res://assets/UI/Arrows_Media_Controls_Pause.png" id="10_7dvkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yev5y"]
 content_margin_left = 0.0
@@ -60,19 +67,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nt7q6")
+metadata/_edit_vertical_guides_ = [160.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScoreContainer" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -110.0
-offset_top = -19.0
+offset_left = -115.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 24.0
 grow_horizontal = 0
-grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yev5y")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ScoreContainer"]
@@ -108,3 +115,45 @@ horizontal_alignment = 2
 position = Vector2(30.777779, 12.75)
 scale = Vector2(1.6111112, 1.6111112)
 sprite_frames = SubResource("SpriteFrames_p7vwb")
+
+[node name="MobileControls" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="leftButton" type="TouchScreenButton" parent="CanvasLayer/MobileControls"]
+position = Vector2(0, 4)
+scale = Vector2(0.07, 0.07)
+texture_normal = ExtResource("4_cgfq5")
+texture_pressed = ExtResource("5_7dvkv")
+passby_press = true
+action = "left"
+
+[node name="rightButton" type="TouchScreenButton" parent="CanvasLayer/MobileControls"]
+position = Vector2(73, 4)
+scale = Vector2(0.07, 0.07)
+texture_normal = ExtResource("6_vdcm2")
+texture_pressed = ExtResource("7_6rmj2")
+passby_press = true
+action = "right"
+
+[node name="Control" type="Control" parent="CanvasLayer/MobileControls"]
+layout_mode = 2
+
+[node name="jumpButton" type="TouchScreenButton" parent="CanvasLayer/MobileControls"]
+position = Vector2(146.00002, 4)
+scale = Vector2(0.085, 0.085)
+texture_normal = ExtResource("8_vsj0x")
+texture_pressed = ExtResource("9_qsv74")
+passby_press = true
+action = "jump"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(148, 3)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("10_7dvkv")
+action = "pause"

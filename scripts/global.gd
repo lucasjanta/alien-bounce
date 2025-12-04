@@ -1,7 +1,7 @@
 extends Node
 
 const highscore_path : String = "user://highscore.txt"
-
+var mobile_controls : bool = false
 var alien_count : int = 0
 var score : int = 0
 var highscore : int = 0
