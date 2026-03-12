@@ -67,4 +67,3 @@ Feel free to open issues or fork the project.
 
 Made by **Lucas Ferreira** for Micro jam 050.
 
-Still Adding all the credits for the assets...
